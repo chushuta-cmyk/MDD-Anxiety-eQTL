@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article and the datasets listed in the README."
+title: "SLC12A5 shared causal locus: analysis code"
+abstract: "Analysis code for cross-trait fine-mapping, brain cell-type cis-eQTL colocalization and donor-resolved single-nucleus transcriptomics in depression and anxiety."
+authors:
+  - name: "chushuta-cmyk"
+repository-code: "https://github.com/chushuta-cmyk/slc12a5-shared-causal-locus"
+license: MIT

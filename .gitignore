@@ -1,0 +1,42 @@
+# Data and derived artefacts (never commit these)
+data/**
+!data/README.md
+*.bin
+*.mtx
+*.mtx.gz
+*.h5ad
+*.rds
+*.RData
+*.gz
+outputs/
+figures/
+*.png
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# R
+.Rhistory
+.Rproj.user/
+.Ruserdata
+
+# Compiled C
+scripts/stream_pseudobulk
+scripts/extract_cell_totals
+*.o
+*.so
+*.dylib
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Manuscript / submission artefacts must never enter this repository
+scripts/10_build_submission_docx.py
+MANUSCRIPT*
