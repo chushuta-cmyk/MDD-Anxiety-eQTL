@@ -1,4 +1,4 @@
-# SLC12A5 shared causal locus — analysis code
+# Cross-disorder fine-mapping and cortical single-nucleus analysis of *SLC12A5*
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![R 4.1+](https://img.shields.io/badge/R-4.1%2B-blue.svg)](https://www.r-project.org/)
@@ -6,7 +6,7 @@
 
 Reproducible analysis code for:
 
-> **SLC12A5 is a shared causal locus for depression and anxiety, with opposing inherited and post-mortem effects on expression**
+> **Cross-disorder fine-mapping and single-nucleus expression analysis of *SLC12A5* in major depressive disorder and anxiety**
 
 This repository contains **code only**. Raw data, derived binaries, figures and the manuscript are not included; acquisition and placement instructions are in [`data/README.md`](data/README.md).
 
@@ -38,8 +38,8 @@ GSE213982 counts ──► C streaming pseudobulk ──► limma-voom / camera 
 ## Repository layout
 
 ```
-scripts/    23 files, named after the archived pipeline so any figure or table can be traced back
-notebooks/  3 Colab Pro notebooks for the memory-heavy steps
+scripts/    26 files, named after the archived pipeline so any figure or table can be traced back
+notebooks/  4 Colab Pro notebooks (including Plan B 83-locus, brainSCOPE/Fujita, & sQTL SMR replication)
 tests/      syntax and hygiene checks (no data required)
 data/       where downloaded inputs go (git-ignored)
 ```
@@ -62,11 +62,15 @@ data/       where downloaded inputs go (git-ignored)
 | | `09b_extract_cell_totals.c` | Library size / QC counter |
 | 5. models | `10_run_p0_limma_camera_interaction.R` | `voom` + `duplicateCorrelation`, subtype interaction, `camera`, sex-stratified |
 | | `11_run_p0_per_donor_liana.py` | Per-donor LIANA+ (69 donors, 30,235 edges) + OLS |
+| | `14_run_local_planA_upgrades.R` | 177-pair lineage-matched DE, 1,000-perm null, HSPA1A & SVA sensitivity |
+| | `15_run_local_gwas_overlap_sensitivity.py` | LDSC intercept (0.323), noUKBB/clinical coloc, 30-gene 20q13.12 sweep, donor scDRS |
 | 6. integration | `01_local_celltype_magma_spatial_integration.py` | Aim 1 scDRS × MAGMA × spatial integration |
 | | `08_aim1_aim2_aim3_mechanistic_integration.py` | Cross-scale master tables |
 | | `05_server_aim3_multilayer_integrate_and_resource_plan.py` | Multilayer integration and resource budget |
-| 7. figures | `13_plot_publication_figures_ggplot2_pheatmap.R` | Figures 1–5 (native R) |
+| 7. figures | `13_plot_publication_figures_ggplot2_pheatmap.R` | Core baseline panels |
+| | `16_plot_upgraded_figures_and_supp.R` | Publication Figures 2–4 (donor points) and Supplementary Figures S1–S3 |
 | | `07_plot_aim2_publication_figures.py` | Aim 2 colocalization figure |
+| 8. cloud replication | `notebooks/04_planB_83loci_fujita_sqtl_replication.ipynb` | Plan B Colab Pro pipeline (83-locus SuSiE, brainSCOPE/Fujita eQTL, BrainMeta sQTL SMR) |
 | 8. resources | `02_download_aim2_aim3_public_resources.sh` | Public resource fetch with disk guardrail |
 | | `02_local_ram_benchmark_probe.py` | Peak-memory probe used to size the C design |
 
